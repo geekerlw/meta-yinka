@@ -7,6 +7,21 @@
     port and the device is in the maskrom mode. For example, my pc's block device is /dev/sda and /dev/sdb,   
     so when I plug the board's otg in, the device port is become into /dev/sdc, and my usb serial port is   
     /dev/ttyUSB0, so I set default environments to /dev/ttyUSB0 and /dev/sdc 
+    Make sure your update.tar.gz is tared like this:
+      -- kernel
+            -- extlinux
+                  -- extlinux.conf
+            -- zImage
+            -- rk3288-firefly.dtb
+      -- u-boot
+            -- prebuild
+                  -- rk3288_boot.bin
+            -- u-boot-dtb.bin
+            -- u-boot.img
+      -- ubuntu
+            -- bin
+            -- boot
+            -- etc.
 ## usage
     make sure you are use in root
     when use the default sets(set the Notice):
