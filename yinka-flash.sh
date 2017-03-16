@@ -18,7 +18,18 @@ if [ ! $DEVICE ]; then
 	fi
 fi
 
-# prepare resource
+# remove exist sources
+if [ -d "u-boot" ]; then
+	rm -rf u-boot
+fi
+if [ -d "kernel" ]; then
+	rm -rf kernel
+fi
+if [ -d "ubuntu" ]; then
+	rm -rf ubuntu
+fi
+
+# prepare sources
 if [ -f update.tar.gz ]; then
 	tar -xvf update.tar.gz
 else
