@@ -22,6 +22,10 @@
             -- bin
             -- boot
             -- etc.
+## Depends
+    libc6-i386
+    libudev1
+    
 ## usage
     make sure you are use in root
     when use the default sets(set the Notice):
