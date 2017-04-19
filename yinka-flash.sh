@@ -36,6 +36,10 @@ else
 	exit 1
 fi
 
+# prepare binary run environment
+sudo apt install -y libc6:i386 libc6-i386
+chmod +x ./tools/upgrade_tool
+
 # flash uboot
 # make sure your board is in maskrom mode
 ./tools/upgrade_tool db u-boot/prebuild/rk3288_boot.bin
