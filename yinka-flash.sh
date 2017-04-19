@@ -37,7 +37,7 @@ else
 fi
 
 # prepare binary run environment
-sudo apt install -y libc6:i386 libc6-i386
+apt install -y libc6:i386 libc6-i386
 chmod +x ./tools/upgrade_tool
 
 # flash uboot
