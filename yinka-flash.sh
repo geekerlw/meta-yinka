@@ -40,6 +40,9 @@ fi
 apt install -y libc6:i386 libc6-i386
 chmod +x ./tools/upgrade_tool
 
+# set serial
+stty -F $TTY ispeed 115200 ospeed  115200 cs8
+
 # flash uboot
 # make sure your board is in maskrom mode
 ./tools/upgrade_tool db u-boot/prebuild/rk3288_boot.bin
