@@ -38,35 +38,34 @@ fi
 
 # prepare binary run environment
 apt install -y libc6:i386 libc6-i386
-chmod +x ./tools/upgrade_tool
+chmod +x ./tools/rkdeveloptool
 
 # set serial
 stty -F $TTY ispeed 115200 ospeed  115200 cs8
 
 # flash uboot
 # make sure your board is in maskrom mode
-./tools/upgrade_tool db u-boot/prebuild/rk3288_boot.bin
-./tools/upgrade_tool wl 64 u-boot/u-boot-dtb.bin
-./tools/upgrade_tool wl 256 u-boot/u-boot.img
-./tools/upgrade_tool rd
+./tools/rkdeveloptool db u-boot/prebuild/rk3288_ubootloader_v1.01.06.bin
+./tools/rkdeveloptool wl 0x40 u-boot/u-boot-rk3288.img
+./tools/rkdeveloptool rd
 
 # wait seconds to restart board
-sleep 2
+sleep 3
 
 # interrupt when start
 echo -e "\x03" > $TTY
 
 # write partition info to emmc
-echo -e "gpt write mmc 1 \$partitions" > $TTY
+echo -e "gpt write mmc 0 \$partitions" > $TTY
 
 # save gpt partition info on emmc
 echo -e "env save" > $TTY
 
 # change to ums mode
-echo -e "ums 0 mmc 1" > $TTY
+echo -e "ums 0 mmc 0" > $TTY
 
 # wait seconds to restart board
-sleep 2
+sleep 3
 
 # formatted partition
 mkfs.fat $DEVICE\1
