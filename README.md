@@ -15,8 +15,7 @@
             -- rk3288-firefly.dtb
       -- u-boot
             -- prebuild
-                  -- rk3288_boot.bin
-            -- u-boot-dtb.bin
+                  -- rk3288_ubootloader_v1.01.06.bin
             -- u-boot.img
       -- ubuntu
             -- bin
